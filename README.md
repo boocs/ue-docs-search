@@ -7,7 +7,9 @@
 Opens web browser and searches hightlighted VSCode document text in the Unreal Engine docs, answers, or forums.
 
 ## OS support
-Windows 10 and Ubuntu 20.04(soon) tested
+Windows 10
+
+Ubuntu 20.04 (crashes FireFox only if Firefox isn't open first) **Release is delayed**
 
 Mac (Not tested but should work)
 
