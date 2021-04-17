@@ -14,7 +14,7 @@ Mac (Not tested but should work)
 ## Installation
 1. Download the VSIX file
 
-![]()
+
 
 2. Click VSCode's Extensions icon
 3. Click the elipse (3 dots) in upper right of left panel
