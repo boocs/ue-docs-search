@@ -1,0 +1,95 @@
+{
+  "name": "ue4-docs-search",
+  "displayName": "ue4-docs-search",
+  "description": "Searches highlight Unreal Engine code on https://docs.unrealengine.com",
+  "version": "0.9.0",
+  "publisher": "boocs",
+  "license": "SEE LICENSE IN THE FILE: LICENSE",
+  "engines": {
+    "vscode": "^1.54.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "workspaceContains:*.uproject"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "ue4-docs-search.cppApi",
+        "title": "Search UE4 C++ Api"
+      },
+      {
+        "command": "ue4-docs-search.blueprintsApi",
+        "title": "Search UE4 Blueprints Api"
+      },
+      {
+        "command": "ue4-docs-search.documentation",
+        "title": "Search UE4 Documentation"
+      },
+      {
+        "command": "ue4-docs-search.answers",
+        "title": "Search UE4 Answers"
+      },
+      {
+        "command": "ue4-docs-search.forums",
+        "title": "Search UE4 Forums"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "ue4-docs-search.cppApi",
+          "group": "4_search@1",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "ue4-docs-search.blueprintsApi",
+          "group": "4_search@2",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "ue4-docs-search.documentation",
+          "group": "4_search@3",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "ue4-docs-search.answers",
+          "group": "4_search@4",
+          "when": "editorHasSelection"
+        },
+        {
+          "command": "ue4-docs-search.forums",
+          "group": "4_search@5",
+          "when": "editorHasSelection"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.0.4",
+    "@types/node": "^12.11.7",
+    "@types/vscode": "^1.54.0",
+    "@typescript-eslint/eslint-plugin": "^4.14.1",
+    "@typescript-eslint/parser": "^4.14.1",
+    "eslint": "^7.19.0",
+    "glob": "^7.1.6",
+    "mocha": "^8.2.1",
+    "typescript": "^4.1.3",
+    "vscode-test": "^1.5.0"
+  },
+  "dependencies": {
+    "node": "^15.12.0"
+  }
+}
