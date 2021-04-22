@@ -1,8 +1,8 @@
 {
-  "name": "ue4-docs-search",
-  "displayName": "ue4-docs-search",
+  "name": "ue-docs-search",
+  "displayName": "Unreal Engine Docs Search",
   "description": "Searches highlight Unreal Engine code on https://docs.unrealengine.com",
-  "version": "0.9.0",
+  "version": "1.0.0",
   "publisher": "boocs",
   "license": "SEE LICENSE IN THE FILE: LICENSE",
   "engines": {
@@ -18,54 +18,82 @@
   "contributes": {
     "commands": [
       {
-        "command": "ue4-docs-search.cppApi",
-        "title": "Search UE4 C++ Api"
+        "command": "ueDocsSearch.cppApi",
+        "title": "Search UE C++ Api"
       },
       {
-        "command": "ue4-docs-search.blueprintsApi",
-        "title": "Search UE4 Blueprints Api"
+        "command": "ueDocsSearch.blueprintsApi",
+        "title": "Search UE Blueprints Api"
       },
       {
-        "command": "ue4-docs-search.documentation",
-        "title": "Search UE4 Documentation"
+        "command": "ueDocsSearch.documentation",
+        "title": "Search UE Documentation"
       },
       {
-        "command": "ue4-docs-search.answers",
-        "title": "Search UE4 Answers"
+        "command": "ueDocsSearch.answers",
+        "title": "Search UE Answers"
       },
       {
-        "command": "ue4-docs-search.forums",
-        "title": "Search UE4 Forums"
+        "command": "ueDocsSearch.forums",
+        "title": "Search UE Forums"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "ue4-docs-search.cppApi",
+          "command": "ueDocsSearch.cppApi",
           "group": "4_search@1",
           "when": "editorHasSelection"
         },
         {
-          "command": "ue4-docs-search.blueprintsApi",
+          "command": "ueDocsSearch.blueprintsApi",
           "group": "4_search@2",
           "when": "editorHasSelection"
         },
         {
-          "command": "ue4-docs-search.documentation",
+          "command": "ueDocsSearch.documentation",
           "group": "4_search@3",
           "when": "editorHasSelection"
         },
         {
-          "command": "ue4-docs-search.answers",
+          "command": "ueDocsSearch.answers",
           "group": "4_search@4",
           "when": "editorHasSelection"
         },
         {
-          "command": "ue4-docs-search.forums",
+          "command": "ueDocsSearch.forums",
           "group": "4_search@5",
           "when": "editorHasSelection"
         }
       ]
+    },
+    "configuration": { 
+      "title": "ueDocsSearch",
+      "properties": {
+        "ueDocsSearch.openType": {
+          "scope": "application",
+          "type": "string",
+          "default": "extension",
+          "enum": [
+            "extension",
+            "chrome",
+            "firefox",
+            "chromium-browser",
+            "opera",
+            "msedge",
+            "xdg-open"
+          ],
+          "enumDescription": [
+            "Open in default browser (linux is forced chromium-browser, See README)",
+            "Open in Chrome",
+            "Open in Firefox",
+            "Open in Chromium Browser",
+            "Open in Opera",
+            "Open in MS Edge (not supported in every OS)",
+            "Open with linux xdg-open (read Ubuntu warning in README)"
+          ]
+        }
+      }
     }
   },
   "scripts": {
