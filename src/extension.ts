@@ -8,9 +8,15 @@ import { OpenType, Win32UrlCommand, Win32App, Win32Opener, DarwinApp, DarwinOpen
 
 import * as console from "./console";
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
 
 	console.createOutputChannel(consts.OUTPUT_CHANNEL_NAME);
+
+	if(!await workspaceHasUprojectFile()) {
+		console.log('No *.uproject file found!');
+		return;
+	}
+
 	console.log('Extension "UE Docs Search" is now active!');
 
 	let disposable = vscode.commands.registerCommand('ueDocsSearch.documentation', (args: any[]) => {
@@ -43,6 +49,20 @@ export function activate(context: vscode.ExtensionContext) {
 // this method is called when your extension is deactivated
 export function deactivate() { 
 	console.disposeOutputChannel();
+}
+
+
+// Check if any workspace has a uproject file
+async function workspaceHasUprojectFile() : Promise<boolean> {
+	console.log('Searching for *.uproject file...');
+
+	const foundFile = await vscode.workspace.findFiles("*.uproject", null, 1, undefined);
+
+	if(!foundFile.length) {
+		return false;
+	}
+	
+	return true;
 }
 
 
@@ -154,7 +174,10 @@ function openURL(url: URL, openType: consts.OpenType) {
 			}
 		});
 	} catch (error) {
-		console.error(`Exception handled: ${error.message}`);
+		console.error("Error!");
+		if(error instanceof Error) {
+			console.error(`Exception handled: ${error.message}`);
+		}
 		console.error(execLine);
 		console.error("Let the developer know if you get this message.");
 		console.log("Trying a different openType, in the settings, can workaround this bug.");

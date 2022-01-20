@@ -100,6 +100,9 @@ Safari, Firefox, Chrome, default browser
 
 ## Release Notes
 
+### v1.0.1
+- Fix extension startup bug
+
 ### v1.0.0
 - Added openType setting which allows you to select a specific web browser to use
 - linux: changed default openType to chromium-browser (because of Firefox crash)

@@ -2,7 +2,7 @@
   "name": "ue-docs-search",
   "displayName": "Unreal Engine Docs Search",
   "description": "Searches highlight Unreal Engine code on https://docs.unrealengine.com",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "boocs",
   "license": "SEE LICENSE IN THE FILE: LICENSE",
   "engines": {
@@ -12,7 +12,7 @@
     "Other"
   ],
   "activationEvents": [
-    "workspaceContains:*.uproject"
+    "onStartupFinished"
   ],
   "main": "./out/extension.js",
   "contributes": {

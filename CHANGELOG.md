@@ -2,6 +2,9 @@
 
 ## [Unreleased]
 
+## [1.0.1] - 2022-01-19
+### Fixes
+- Extension startup bug
 
 ## [1.0.0] - 2021-04-20
 
